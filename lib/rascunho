@@ -1,0 +1,40 @@
+=> ListTile(
+                                        leading: Icon(
+                                          Icons.keyboard_arrow_right,
+                                          size: 40,
+                                          color: PaletaCores.cyan(),
+                                        ),
+                                        title: Text(
+                                          'Modelo: ${filtros.getFiltro(i).modelo}',
+                                          style: TextStyle(
+                                              fontSize: 21,
+                                              color: Colors.white,),
+                                          overflow: TextOverflow.fade,
+                                          maxLines: 1,
+                                          softWrap: false,
+                                        ),
+                                        subtitle: Text(
+                                          'Performanse: ${filtros.getFiltro(i).performanse} L/h',
+                                          style: TextStyle(
+                                              fontSize: 20,
+                                              color: Colors.white),
+                                          overflow: TextOverflow.fade,
+                                          maxLines: 1,
+                                          softWrap: false,
+                                        ),
+                                        onTap: () {
+                                          Navigator.push(
+                                            context,
+                                            new MaterialPageRoute(
+                                              builder: (context) =>
+                                                  ScreenFilter(filtros.getFiltro(i)),
+                                            ),
+                                          );
+
+
+
+
+                                          /* Navigator.pushNamed(
+                                              context, AppRoutes.FILTER_PAGE); */
+                                        },
+                                      ),
