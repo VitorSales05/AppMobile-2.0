@@ -1,4 +1,5 @@
 import 'package:filtro/controllers/alert_forms.dart';
+import 'package:filtro/controllers/list_components.dart';
 import 'package:filtro/data/db_app.dart';
 import 'package:filtro/models/filtro.dart';
 import 'package:filtro/providers/filtros.dart';
@@ -39,7 +40,7 @@ saveSystem(BuildContext context) {
       final camposCad = Container(
         height: size.height * .35,
         width: size.width,
-        child: new Form(
+        child: Form(
           autovalidate: _validate,
           child: Padding(
             padding: EdgeInsets.all(0),
@@ -77,8 +78,12 @@ saveSystem(BuildContext context) {
                     ),
                     fillColor: PaletaCores.grayDark(),
                     filled: true,
-                    hintText: 'Filtro utilizado',
+                    hintText: 'Filtro a ser utilizado',
                   ),
+                  onTap: () {
+                   // Navigator.pushNamed(context, AppRoutes.FILTER_LIST_PAGE);
+                    searchFilter(context);
+                  },
                 ),
                 SizedBox(
                   height: 10,
@@ -96,8 +101,12 @@ saveSystem(BuildContext context) {
                     ),
                     fillColor: PaletaCores.grayDark(),
                     filled: true,
-                    hintText: 'Bomba utilizada',
+                    hintText: 'Bomba a ser utilizada',
                   ),
+                  onTap: () {
+                  //  Navigator.pushNamed(context, AppRoutes.BOMBER_LIST_PAGE);
+                    searchBomb(context);
+                  },
                 ),
               ],
             ),
@@ -124,7 +133,7 @@ saveSystem(BuildContext context) {
             onPressed: () {
               Navigator.pushNamedAndRemoveUntil(
                   context,
-                  AppRoutes.FILTER_LIST_PAGE,
+                  AppRoutes.SYSTEM_LIST_PAGE,
                   ModalRoute.withName(AppRoutes.HOME_PAGE));
             },
           ),

@@ -1,4 +1,4 @@
-import 'package:filtro/controllers/start_simulation.dart';
+import 'package:filtro/controllers/controller_simulation.dart';
 import 'package:filtro/models/filtro.dart';
 import 'package:filtro/utils/color_palette.dart';
 import 'package:flutter/material.dart';
