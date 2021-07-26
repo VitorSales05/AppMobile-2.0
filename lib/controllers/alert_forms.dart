@@ -6,10 +6,9 @@ alertFilter(context /* , String modelo, String performanse, String preco */) {
   return _alertFilter(context);
   // }
 }
-
 void _alertFilter(BuildContext context) {
   Widget okButton = RaisedButton(
-    color: PaletaCores.cyan(),
+    color: PaletaCores.fireBrick(),
     elevation: 5,
     shape: new RoundedRectangleBorder(
       borderRadius: new BorderRadius.circular(10),
@@ -36,13 +35,13 @@ void _alertFilter(BuildContext context) {
   );
 }
 
+
 alertBomb(context) {
   return _alertBomb(context);
 }
-
 void _alertBomb(BuildContext context) {
   Widget okButton = RaisedButton(
-    color: PaletaCores.cyan(),
+    color: PaletaCores.fireBrick(),
     elevation: 5,
     shape: new RoundedRectangleBorder(
       borderRadius: new BorderRadius.circular(10),

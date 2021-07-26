@@ -68,7 +68,7 @@ class _ScreenEstate extends State<ScreenEstate> {
                         softWrap: false,
                       ),
                       subtitle: Text(
-                        'Tarifa: ${estados.elementAt(i).tarifa} Reais por m/3 ',
+                        'Tarifa: R\$ ${estados.elementAt(i).tarifa} /m³ ',
                         style: TextStyle(fontSize: 21, color: PaletaCores.black()),
                         overflow: TextOverflow.fade,
                         maxLines: 1,

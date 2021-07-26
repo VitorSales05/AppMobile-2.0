@@ -1,4 +1,4 @@
-#Tue Jul 13 22:07:34 BRT 2021
+#Mon Jul 26 17:14:17 BRT 2021
 base.0=C\:\\curso_flutter\\reutilizacao2\\build\\app\\intermediates\\dex\\debug\\mergeDexDebug\\out\\classes.dex
 path.0=classes.dex
 renamed.0=classes.dex

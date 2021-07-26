@@ -13,7 +13,7 @@ startSimulation(context, String modelo, String performanse, String tarifa, Strin
 
   double retornoFinanceiro = mtrCubicos * tarifaEstadual / 100 * 30;
   double economiaLitros = litrosUtilizados / 100 * 30;
-   double performanseFiltro = double.parse(performanse);
+  double performanseFiltro = double.parse(performanse);
 
 
   var retorno = double.parse(retornoFinanceiro.toStringAsFixed(2));
@@ -44,12 +44,12 @@ R$ =  T$ / 100 * 30;
 void _alertDialogResult(BuildContext context, double retorno, double quantidade, int tmpGasto) {
   Widget okButton = RaisedButton(
     color: PaletaCores.seanGreen(),
-    padding: EdgeInsets.fromLTRB(16, 4, 16, 4),
+    padding: EdgeInsets.fromLTRB(18, 4, 18, 4),
     elevation: 5,
     shape: new RoundedRectangleBorder(
       borderRadius: new BorderRadius.circular(10),
     ),
-    child: Text('CONCLUIR SIMULAÇÃO', style: TextStyle(fontSize: 20)),
+    child: Text('CONCLUIR SIMULAÇÃO', style: TextStyle(fontSize: 18)),
     onPressed: () {
       Navigator.pushNamedAndRemoveUntil(context, AppRoutes.HOME_PAGE,
           ModalRoute.withName(AppRoutes.HOME_PAGE));
@@ -59,11 +59,11 @@ void _alertDialogResult(BuildContext context, double retorno, double quantidade,
   AlertDialog alerta = AlertDialog(
     title: Text(
       'Economias',
-      style: TextStyle(fontSize: 25),
+      style: TextStyle(fontSize: 26),
       textAlign: TextAlign.center,
     ),
     content: Text(
-      'Retorno: R\$ ${retorno}\nEconomia: ${quantidade}L\nTempo estimado: ${tmpGasto} dia(s)',
+      'Litros economizados: ${quantidade}L\nRetorno do informado: R\$${retorno}\nTempo para retorno do valor investido: ${105} dias',
       style: TextStyle(fontSize: 22),
     ),
     actions: [
@@ -78,6 +78,7 @@ void _alertDialogResult(BuildContext context, double retorno, double quantidade,
     },
   );
 }
+
 
 void _alertDialogVazio(BuildContext context) {
   Widget okButton = RaisedButton(

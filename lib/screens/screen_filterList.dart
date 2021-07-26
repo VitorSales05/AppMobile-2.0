@@ -39,7 +39,7 @@ class _ScreenFilterList extends State<ScreenFilterList> {
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: <Widget>[
                     Text(
-                      'Filtros Cadastrados',
+                      'Sistemas Cadastrados',
                       style: TextStyle(
                         fontSize: 34,
                         color: PaletaCores.black(),

@@ -57,7 +57,7 @@ class _ScreenSimulate extends State<ScreenSimulate> {
                       : Consumer<Filtros>(
                           child: Center(
                             child: Text(
-                              'Nenhum filtro cadastrado',
+                              'Nenhum sistema cadastrado',
                               style: TextStyle(
                                   fontSize: 25,
                                   fontWeight: FontWeight.bold,

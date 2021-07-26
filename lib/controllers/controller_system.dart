@@ -61,6 +61,9 @@ saveSystem(BuildContext context) {
                     filled: true,
                     hintText: 'Nome do sistema',
                   ),
+                  onTap: () {
+                    Navigator.pushNamed(context, AppRoutes.FILTER_LIST_PAGE);
+                  }
                 ),
                 SizedBox(
                   height: 10,

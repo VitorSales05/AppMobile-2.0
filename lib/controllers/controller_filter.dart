@@ -24,7 +24,7 @@ saveFilter(BuildContext context) {
         var preco = _precoController.text.toString();
 
         if (modelo.isEmpty || performanse.isEmpty || preco.isEmpty) {
-          return alertFilter(context/* , modelo, performanse, preco */);
+          return alertFilter(context);
         }
         Provider.of<Filtros>(context, listen: false)
             .novoFiltro(modelo, performanse, preco);
@@ -54,7 +54,7 @@ saveFilter(BuildContext context) {
                     ),
                     fillColor: PaletaCores.grayDark(),
                     filled: true,
-                    hintText: 'Modelo Filtro',
+                    hintText: 'Nome do sistema',
                   ),
                 ),
                 SizedBox(
@@ -73,7 +73,7 @@ saveFilter(BuildContext context) {
                     ),
                     fillColor: PaletaCores.grayDark(),
                     filled: true,
-                    hintText: 'Filtragem de L/h',
+                    hintText: 'Filtro utilizado',
                   ),
                 ),
                 SizedBox(
@@ -92,7 +92,7 @@ saveFilter(BuildContext context) {
                     ),
                     fillColor: PaletaCores.grayDark(),
                     filled: true,
-                    hintText: 'Valor investido',
+                    hintText: 'Bomba utilizada',
                   ),
                 ),
               ],
@@ -103,7 +103,7 @@ saveFilter(BuildContext context) {
 
       return AlertDialog(
         title: Text(
-          'Cadastrar filtro',
+          'Cadastrar sistema',
           style: TextStyle(fontSize: 30),
           textAlign: TextAlign.center,
         ),

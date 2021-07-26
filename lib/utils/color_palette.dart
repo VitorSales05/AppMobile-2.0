@@ -9,6 +9,7 @@ class PaletaCores {
   static Color blue([double opacity = 1]) => Color.fromRGBO(47, 92, 189, opacity);
   static Color blueDark([double opacity = 1]) => Color.fromRGBO(35, 31, 99, opacity);
   static Color blueHome([double opacity = 1]) => Color.fromRGBO(72, 134, 200, opacity);
+  static Color lightBlue([double opacity = 1]) => Colors.lightBlue;
   static Color cyan([double opacity = 1]) => Color.fromRGBO(80, 204, 255, opacity);
   static Color cyanLight([double opacity = 1]) => Color.fromRGBO(130, 206, 250, opacity);
   static Color seanGreen([double opacity = 1]) => Color.fromRGBO(46, 139, 87, opacity);

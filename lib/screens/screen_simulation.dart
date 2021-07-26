@@ -88,7 +88,7 @@ class ScreenSimulation extends StatelessWidget {
                               textAlign: TextAlign.center,
                             ),
                             Text(
-                              'Total invertido: R\$ ${filtro.preco}',
+                              'Total investido: R\$ ${filtro.preco}',
                               style: TextStyle(
                                 fontSize: 24,
                                 fontWeight: FontWeight.w500,
@@ -156,33 +156,33 @@ class ScreenSimulation extends StatelessWidget {
                       children: <Widget>[
                         RaisedButton(
                          // textColor: PaletaCores.white(),
-                          color: PaletaCores.white(),
+                          color: PaletaCores.grafite(),
                           elevation: 15,
-                          padding: const EdgeInsets.fromLTRB(48, 33, 48, 33),
+                          padding: const EdgeInsets.fromLTRB(42, 26, 42, 26),
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(15),
-                            side: BorderSide(color: PaletaCores.blueDark()),
+                            side: BorderSide(color: PaletaCores.lightBlue()),
                           ),
                           child: Text('Cancelar',
                               style: TextStyle(
-                                  fontSize: 21, fontWeight: FontWeight.bold, color: PaletaCores.black())),
+                                  fontSize: 21, fontWeight: FontWeight.bold, color: PaletaCores.lightBlue())),
                           onPressed: () {
                             Navigator.pop(context);
                           },
                         ),
                         RaisedButton(
                         //  textColor: PaletaCores.black(),
-                          color: PaletaCores.cyanLight(),
+                          color: PaletaCores.grafite(),
                           elevation: 15,
-                          padding: const EdgeInsets.fromLTRB(43, 22, 43, 22),
+                          padding: const EdgeInsets.fromLTRB(38, 15, 38, 15),
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(15),
-                            side: BorderSide(color: PaletaCores.blueDark()),
+                            side: BorderSide(color: PaletaCores.lightBlue()),
                           ),
                           child: Text('Realizar\nsimulação',
                               textAlign: TextAlign.center,
                               style: TextStyle(
-                                  fontSize: 21, fontWeight: FontWeight.bold, color: PaletaCores.white())),
+                                  fontSize: 21, fontWeight: FontWeight.bold, color: PaletaCores.lightBlue())),
                           onPressed: () {
                             _simulation();
                           },
