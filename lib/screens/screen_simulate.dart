@@ -33,7 +33,7 @@ class _ScreenSimulate extends State<ScreenSimulate> {
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: <Widget>[
                     Text(
-                      'Sistemas Cadastrados',
+                      'Sistemas',
                       style: TextStyle(
                           fontSize: 32,
                           color: PaletaCores.black(),

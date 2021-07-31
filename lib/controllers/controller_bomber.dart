@@ -1,10 +1,7 @@
 import 'package:filtro/controllers/alert_forms.dart';
 import 'package:filtro/data/db_app.dart';
 import 'package:filtro/models/bomba.dart';
-import 'package:filtro/models/filtro.dart';
 import 'package:filtro/providers/bombas.dart';
-import 'package:filtro/OLD/bombas_old.dart';
-import 'package:filtro/providers/filtros.dart';
 import 'package:filtro/utils/app_routes.dart';
 import 'package:filtro/utils/color_palette.dart';
 import 'package:flutter/material.dart';
@@ -29,7 +26,7 @@ saveBomber(BuildContext context) {
         var preco = _precoController.text.toString();
 
         if(modelo.isEmpty || performanse.isEmpty || preco.isEmpty){
-          return alertFilter(context/* , modelo, performanse, preco */);
+          return alertCampNull(context/* , modelo, performanse, preco */);
         }
         Provider.of<Bombas>(context, listen: false).novaBomba(modelo, performanse, preco);
         Navigator.pushNamedAndRemoveUntil(context, AppRoutes.BOMBER_LIST_PAGE,
@@ -37,7 +34,7 @@ saveBomber(BuildContext context) {
       }
 
       final camposCad = Container(
-        height: size.height * .35,
+        height: size.height * .28,
         width: size.width,
         child: new Form(
           autovalidate: _validate,
@@ -233,7 +230,7 @@ void _editDialog(BuildContext context, Bomba bomba) {
       bool _validate = false;
 
     final camposCad = Container(
-        height: size.height * .30,
+        height: size.height * .28,
         width: size.width,
         child: new Form(
           autovalidate: _validate,
@@ -301,7 +298,7 @@ void _editDialog(BuildContext context, Bomba bomba) {
                     ),
                     fillColor: PaletaCores.grayDark(),
                     filled: true,
-                    hintText: 'Valor investido',
+                    hintText: 'Preço da bomba',
                   ),
                 ),
               ],
@@ -341,7 +338,7 @@ void _editDialog(BuildContext context, Bomba bomba) {
             child: Text('Salvar', style: TextStyle(fontSize: 20)),
             onPressed: () {
               if(_bombaCTX.modelo.isEmpty || _bombaCTX.performanse.isEmpty || _bombaCTX.preco.isEmpty){
-                alertBomb(context);
+                alertCampNull(context);
               } else {
               DbApp.editarBomb('bomba', _bombaCTX);
               Navigator.pop(context);

@@ -24,7 +24,7 @@ saveFilter(BuildContext context) {
         var preco = _precoController.text.toString();
 
         if (modelo.isEmpty || performanse.isEmpty || preco.isEmpty) {
-          return alertFilter(context);
+          return alertCampNull(context);
         }
         Provider.of<Filtros>(context, listen: false)
             .novoFiltro(modelo, performanse, preco);
@@ -33,7 +33,7 @@ saveFilter(BuildContext context) {
       }
 
       final camposCad = Container(
-        height: size.height * .35,
+        height: size.height * .28,
         width: size.width,
         child: new Form(
           autovalidate: _validate,
@@ -54,7 +54,7 @@ saveFilter(BuildContext context) {
                     ),
                     fillColor: PaletaCores.grayDark(),
                     filled: true,
-                    hintText: 'Nome do sistema',
+                    hintText: 'Modelo do filtro',
                   ),
                 ),
                 SizedBox(
@@ -73,7 +73,7 @@ saveFilter(BuildContext context) {
                     ),
                     fillColor: PaletaCores.grayDark(),
                     filled: true,
-                    hintText: 'Filtro utilizado',
+                    hintText: 'Filtragem de L/h',
                   ),
                 ),
                 SizedBox(
@@ -92,7 +92,7 @@ saveFilter(BuildContext context) {
                     ),
                     fillColor: PaletaCores.grayDark(),
                     filled: true,
-                    hintText: 'Bomba utilizada',
+                    hintText: 'Preço do filtro',
                   ),
                 ),
               ],
@@ -103,7 +103,7 @@ saveFilter(BuildContext context) {
 
       return AlertDialog(
         title: Text(
-          'Cadastrar sistema',
+          'Cadastrar filtro',
           style: TextStyle(fontSize: 30),
           textAlign: TextAlign.center,
         ),
@@ -228,7 +228,7 @@ void _editDialog(BuildContext context, Filtro filtro) {
       bool _validate = false;
 
       final camposCad = Container(
-        height: size.height * .30,
+        height: size.height * .28,
         width: size.width,
         child: new Form(
           autovalidate: _validate,
@@ -252,7 +252,7 @@ void _editDialog(BuildContext context, Filtro filtro) {
                     ),
                     fillColor: PaletaCores.grayDark(),
                     filled: true,
-                    hintText: 'Modelo Filtro',
+                    hintText: 'Modelo do Filtro',
                   ),
                 ),
                 SizedBox(
@@ -338,7 +338,7 @@ void _editDialog(BuildContext context, Filtro filtro) {
             child: Text('Salvar', style: TextStyle(fontSize: 20)),
             onPressed: () {
               if(_filtroCTX.modelo.isEmpty || _filtroCTX.performanse.isEmpty || _filtroCTX.preco.isEmpty){
-                alertFilter(context);
+                alertCampNull(context);
               } else {
               DbApp.editarFilt('filtro', _filtroCTX);
               Navigator.pop(context);

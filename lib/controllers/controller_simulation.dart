@@ -1,10 +1,11 @@
+import 'package:filtro/controllers/alert_forms.dart';
 import 'package:filtro/utils/app_routes.dart';
 import 'package:filtro/utils/color_palette.dart';
 import 'package:flutter/material.dart';
 
 startSimulation(context, String modelo, String performanse, String tarifa, String litros) {
   if (tarifa.isEmpty || litros.isEmpty) {
-    return _alertDialogVazio(context);
+    return alertCampNull(context);
   }
 
   double litrosUtilizados = double.parse(litros);
@@ -66,36 +67,6 @@ void _alertDialogResult(BuildContext context, double retorno, double quantidade,
       'Litros economizados: ${quantidade}L\nRetorno do informado: R\$${retorno}\nTempo para retorno do valor investido: ${105} dias',
       style: TextStyle(fontSize: 22),
     ),
-    actions: [
-      okButton,
-    ],
-  );
-
-  showDialog(
-    context: context,
-    builder: (BuildContext context) {
-      return alerta;
-    },
-  );
-}
-
-
-void _alertDialogVazio(BuildContext context) {
-  Widget okButton = RaisedButton(
-    color: PaletaCores.fireBrick(),
-    padding: EdgeInsets.fromLTRB(18, 4, 18, 4),
-    elevation: 5,
-    shape: new RoundedRectangleBorder(
-      borderRadius: new BorderRadius.circular(10),
-    ),
-    child: Text('OK', style: TextStyle(fontSize: 25)),
-    onPressed: () {
-      Navigator.pop(context);
-    },
-  );
-
-  AlertDialog alerta = AlertDialog(
-    title: Text('Preencha todos os campos!', style: TextStyle(fontSize: 25)),
     actions: [
       okButton,
     ],

@@ -1,6 +1,7 @@
 import 'dart:math';
 import 'package:filtro/data/db_app.dart';
 import 'package:filtro/models/bomba.dart';
+import 'package:filtro/models/filtro.dart';
 import 'package:filtro/models/sistema.dart';
 import 'package:flutter/material.dart';
 

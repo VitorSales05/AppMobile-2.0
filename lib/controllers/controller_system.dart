@@ -1,5 +1,5 @@
 import 'package:filtro/controllers/alert_forms.dart';
-import 'package:filtro/controllers/list_components.dart';
+import 'package:filtro/controllers/controller_searchComponent.dart';
 import 'package:filtro/data/db_app.dart';
 import 'package:filtro/models/filtro.dart';
 import 'package:filtro/providers/filtros.dart';
@@ -29,7 +29,7 @@ saveSystem(BuildContext context) {
         var bomba = _bombaController.text.toString();
 
         if (nome.isEmpty || filtro.isEmpty || bomba.isEmpty) {
-          return alertFilter(context/* , modelo, performanse, preco */);
+          return alertCampNull(context/* , modelo, performanse, preco */);
         }
         Provider.of<Sistemas>(context, listen: false)
             .novoSistema(nome, total, filtro, bomba);
@@ -38,7 +38,7 @@ saveSystem(BuildContext context) {
       }
 
       final camposCad = Container(
-        height: size.height * .35,
+        height: size.height * .28,
         width: size.width,
         child: Form(
           autovalidate: _validate,
@@ -61,9 +61,6 @@ saveSystem(BuildContext context) {
                     filled: true,
                     hintText: 'Nome do sistema',
                   ),
-                  onTap: () {
-                    Navigator.pushNamed(context, AppRoutes.FILTER_LIST_PAGE);
-                  }
                 ),
                 SizedBox(
                   height: 10,
@@ -84,7 +81,6 @@ saveSystem(BuildContext context) {
                     hintText: 'Filtro a ser utilizado',
                   ),
                   onTap: () {
-                   // Navigator.pushNamed(context, AppRoutes.FILTER_LIST_PAGE);
                     searchFilter(context);
                   },
                 ),
@@ -107,7 +103,6 @@ saveSystem(BuildContext context) {
                     hintText: 'Bomba a ser utilizada',
                   ),
                   onTap: () {
-                  //  Navigator.pushNamed(context, AppRoutes.BOMBER_LIST_PAGE);
                     searchBomb(context);
                   },
                 ),
@@ -211,6 +206,7 @@ void _deletDialog(BuildContext context, String id) {
   );
 }
 
+
 //EDIT
 editSystem(context, Filtro filtro) {
   return _editDialog(context, filtro);
@@ -244,7 +240,7 @@ void _editDialog(BuildContext context, Filtro filtro) {
       bool _validate = false;
 
       final camposCad = Container(
-        height: size.height * .30,
+        height: size.height * .28,
         width: size.width,
         child: new Form(
           autovalidate: _validate,
@@ -268,7 +264,7 @@ void _editDialog(BuildContext context, Filtro filtro) {
                     ),
                     fillColor: PaletaCores.grayDark(),
                     filled: true,
-                    hintText: 'Modelo Filtro',
+                    hintText: 'Nome do sistema',
                   ),
                 ),
                 SizedBox(
@@ -290,7 +286,7 @@ void _editDialog(BuildContext context, Filtro filtro) {
                     ),
                     fillColor: PaletaCores.grayDark(),
                     filled: true,
-                    hintText: 'Filtragem de L/h',
+                    hintText: 'Bomba utilizada',
                   ),
                 ),
                 SizedBox(
@@ -312,7 +308,7 @@ void _editDialog(BuildContext context, Filtro filtro) {
                     ),
                     fillColor: PaletaCores.grayDark(),
                     filled: true,
-                    hintText: 'Valor investido',
+                    hintText: 'Filtro utilizado',
                   ),
                 ),
               ],
@@ -354,7 +350,7 @@ void _editDialog(BuildContext context, Filtro filtro) {
             child: Text('Salvar', style: TextStyle(fontSize: 20)),
             onPressed: () {
               if(_filtroCTX.modelo.isEmpty || _filtroCTX.performanse.isEmpty || _filtroCTX.preco.isEmpty){
-                alertFilter(context);
+                alertCampNull(context);
               } else {
               DbApp.editarFilt('filtro', _filtroCTX);
               Navigator.pop(context);

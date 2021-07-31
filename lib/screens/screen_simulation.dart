@@ -42,7 +42,7 @@ class ScreenSimulation extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.end,
                       children: <Widget>[
                         Text(
-                          'Simulação',
+                          'Realizar simulação',
                           style: TextStyle(
                               fontSize: 37,
                               color: PaletaCores.black(),
@@ -136,7 +136,7 @@ class ScreenSimulation extends StatelessWidget {
                                           ),
                                           fillColor: PaletaCores.gray(),
                                           filled: true,
-                                          labelText: 'Litros a serem tratados',
+                                          labelText: 'Litros de água a serem tratados',
                                         ),
                                       ),
                                     ),
