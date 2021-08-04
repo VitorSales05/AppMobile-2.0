@@ -34,9 +34,12 @@ class Sistemas with ChangeNotifier {
           (item) => Sistema(
               id: item['id'],
               nome: item['nome'],
-              total: item['valorTotal'],
-              idFiltro: item['filtro_idFiltro'],
-              idBomba: item['bomba_idbomba'],
+              modeloFiltro: item['modeloFiltro'],
+              perfFiltro: item['performanseFiltro'],
+              precoFiltro: item['precoFiltro'],
+              modeloBomba: item['modeloBomba'],
+              perfBomba: item['performanseBomba'],
+              precoBomba: item['precoBomba'],
           ),
         )
         .toList();
@@ -44,22 +47,28 @@ class Sistemas with ChangeNotifier {
   }  
 
   //Adiciona
-  void novoSistema(String nomeSist, String totalSist, String idFiltro, String idBomba) {
-    final nomeSistema = Sistema(
+  void novoSistema(String nome, String modFiltro, String perfFiltro,  String precoFiltro, String modBomba, String perfBomba, String precoBomba) {
+    final novoSistema = Sistema(
         id: Random().nextInt(200).toString(),
-        nome: nomeSist,
-        total: totalSist,
-        idFiltro: idFiltro,
-        idBomba: idBomba,
+        nome: nome,
+        modeloFiltro: modFiltro,
+        perfFiltro: perfFiltro,
+        precoFiltro: precoFiltro,
+        modeloBomba: modBomba,
+        perfBomba: perfBomba,
+        precoBomba: precoBomba,
     );
-    _itens.add(nomeSistema);
+    _itens.add(novoSistema);
 
     DbApp.inserir('sistema', {
-      'id': nomeSistema.id,
-      'nome': nomeSistema.nome,
-      'valorTotal': nomeSistema.total,
-      'filtro_idFiltro': nomeSistema.idFiltro,
-      'bomba_idbomba': nomeSistema.idBomba,
+      'id': novoSistema.id,
+      'nome': novoSistema.nome,
+      'modeloFiltro': novoSistema.modeloFiltro,
+      'performanseFiltro': novoSistema.perfFiltro,
+      'precoFiltro': novoSistema.precoFiltro,
+      'modeloBomba': novoSistema.modeloBomba,
+      'performanseBomba': novoSistema.perfBomba,
+      'precoBomba': novoSistema.precoBomba,
     });
     notifyListeners();
   }

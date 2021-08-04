@@ -1,24 +1,54 @@
+import 'package:filtro/OLD/screen_edit_filter.dart';
 import 'package:filtro/controllers/alert_forms.dart';
+import 'package:filtro/controllers/controller_bomber.dart';
+import 'package:filtro/controllers/controller_filter.dart';
+import 'package:filtro/OLD/controller_systemOLD.dart';
+import 'package:filtro/data/db_app.dart';
+import 'package:filtro/models/bomba.dart';
+import 'package:filtro/models/filtro.dart';
 import 'package:filtro/providers/bombas.dart';
 import 'package:filtro/providers/filtros.dart';
 import 'package:filtro/providers/sistemas.dart';
+import 'package:filtro/screens/screen_newSystem.dart';
 import 'package:filtro/utils/app_routes.dart';
 import 'package:filtro/utils/color_palette.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+
 searchFilter(BuildContext context) {
+  
+  
   // exibe o dialog
   showDialog(
     context: context,
     builder: (BuildContext ctx) {
       var size = MediaQuery.of(context).size;
-      bool _validate = false;
 
-      _register() {
-        Navigator.pushNamedAndRemoveUntil(context, AppRoutes.SYSTEM_LIST_PAGE,
-            ModalRoute.withName(AppRoutes.HOME_PAGE));
-      }
+/* void _exibeBombaPage({Bomba bomba}) async {
+    await editBomb(context, bomba);
+    Provider.of<Bombas>(context, listen: false).buscaBombas();
+  }
+      void _exibeFiltroPage({Filtro filtro}) async {
+        Bomba b;
+        await editFilter(context, filtro);
+
+    //    Navigator.pop(context, filtro);
+      //  Provider.of<Filtros>(context, listen: false).buscaFiltros();
+      } */
+
+      void _exibeFiltroPage({Filtro filtro}) async {
+   // var table = 'bomba';
+    //final bombaRecebido = 
+    await Navigator.push(
+        context,
+        MaterialPageRoute(
+            builder: (context) => ScreenNewSystem()));
+    //await DbApp.editarBomb(table, bombaRecebido);
+    
+ //   Provider.of<Bombas>(context, listen: false).buscaItens();
+  }
+      
 
       final camposCad = Container(
         width: size.width,
@@ -95,7 +125,13 @@ searchFilter(BuildContext context) {
                                               IconButton(
                                                 icon: Icon(Icons.check),
                                                 color: PaletaCores.blue(),
-                                                onPressed: () {},
+                                                onPressed: () {
+                                                  
+                                                  _exibeFiltroPage(
+                                                            filtro: filtros
+                                                                .getFiltro(i),
+                                                          );
+                                                },
                                               ),
                                             ],
                                           ),
@@ -151,6 +187,7 @@ searchBomb(BuildContext context) {
             ModalRoute.withName(AppRoutes.HOME_PAGE));
       }
 
+      
       final camposCad = Container(
         width: size.width,
         height: size.height * .45,
@@ -225,7 +262,9 @@ searchBomb(BuildContext context) {
                                               IconButton(
                                                 icon: Icon(Icons.check),
                                                 color: PaletaCores.blue(),
-                                                onPressed: () {},
+                                                onPressed: () {
+                                               
+                                                },
                                               ),
                                             ],
                                           ),

@@ -13,6 +13,8 @@ class ScreenBomberListOLD extends StatefulWidget {
 }
 
 class _ScreenBomberList extends State<ScreenBomberListOLD> {
+
+
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
@@ -116,7 +118,7 @@ class _ScreenBomberList extends State<ScreenBomberListOLD> {
                                                   /* _exibeBombaPage(
                                                     bomba:
                                                         bombas.getBomba(i), 
-                                                  );*/
+                                                  ); */
                                                 },
                                               ),
                                             ),

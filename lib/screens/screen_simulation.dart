@@ -1,11 +1,11 @@
 import 'package:filtro/controllers/controller_simulation.dart';
-import 'package:filtro/models/filtro.dart';
+import 'package:filtro/models/sistema.dart';
 import 'package:filtro/utils/color_palette.dart';
 import 'package:flutter/material.dart';
 
 class ScreenSimulation extends StatelessWidget {
-  final Filtro filtro;
-  ScreenSimulation(this.filtro);
+  final Sistema sistema;
+  ScreenSimulation(this.sistema);
   final _litrosController = TextEditingController();
   final _estadoController = TextEditingController();
 
@@ -13,11 +13,23 @@ class ScreenSimulation extends StatelessWidget {
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
 
+    var filt = sistema.precoFiltro;
+    var bomb = sistema.precoBomba;
+    double filtro = double.parse(filt);
+    double bomba = double.parse(bomb);
+    double total = filtro + bomba;
+    var totalInvestimento = double.parse(total.toStringAsFixed(2));
+
     _simulation() {
       startSimulation(
         context,
-        filtro.modelo,
-        filtro.performanse,
+        sistema.nome,
+        sistema.modeloFiltro,
+        sistema.perfFiltro,
+        sistema.precoFiltro,
+        sistema.modeloBomba,
+        sistema.perfBomba,
+        sistema.precoBomba,
         _estadoController.text.toString(),
         _litrosController.text.toString(),
       );
@@ -61,7 +73,7 @@ class ScreenSimulation extends StatelessWidget {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: <Widget>[
                             Text(
-                              'Sistema: ${filtro.modelo}',
+                              'Sistema: ${sistema.nome}',
                               style: TextStyle(
                                 fontSize: 27,
                                 fontWeight: FontWeight.w500,
@@ -70,7 +82,7 @@ class ScreenSimulation extends StatelessWidget {
                               textAlign: TextAlign.center,
                             ),
                             Text(
-                              'Filtro: ${filtro.modelo}',
+                              'Filtro: ${sistema.modeloFiltro}',
                               style: TextStyle(
                                 fontSize: 24,
                                 fontWeight: FontWeight.w500,
@@ -79,7 +91,7 @@ class ScreenSimulation extends StatelessWidget {
                               textAlign: TextAlign.center,
                             ),
                             Text(
-                              'Bomba: ${filtro.modelo}',
+                              'Bomba: ${sistema.modeloBomba}',
                               style: TextStyle(
                                 fontSize: 24,
                                 fontWeight: FontWeight.w500,
@@ -88,7 +100,7 @@ class ScreenSimulation extends StatelessWidget {
                               textAlign: TextAlign.center,
                             ),
                             Text(
-                              'Total investido: R\$ ${filtro.preco}',
+                              'Valor investido: R\$ ${totalInvestimento}',
                               style: TextStyle(
                                 fontSize: 24,
                                 fontWeight: FontWeight.w500,
@@ -118,6 +130,9 @@ class ScreenSimulation extends StatelessWidget {
                                           filled: true,
                                           labelText: 'Tarifa estadual',
                                         ),
+                                        onTap: () {
+                                        //  searchFilter(context);
+                                        },
                                       ),
                                     ),
                                     Padding(
@@ -158,7 +173,7 @@ class ScreenSimulation extends StatelessWidget {
                          // textColor: PaletaCores.white(),
                           color: PaletaCores.grafite(),
                           elevation: 15,
-                          padding: const EdgeInsets.fromLTRB(42, 26, 42, 26),
+                          padding: const EdgeInsets.fromLTRB(38, 21, 38, 21),
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(15),
                             side: BorderSide(color: PaletaCores.lightBlue()),
@@ -174,7 +189,7 @@ class ScreenSimulation extends StatelessWidget {
                         //  textColor: PaletaCores.black(),
                           color: PaletaCores.grafite(),
                           elevation: 15,
-                          padding: const EdgeInsets.fromLTRB(38, 15, 38, 15),
+                          padding: const EdgeInsets.fromLTRB(34, 10, 34, 10),
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(15),
                             side: BorderSide(color: PaletaCores.lightBlue()),
@@ -203,10 +218,10 @@ class ScreenSimulation extends StatelessWidget {
 /* 
               padding: new EdgeInsets.all(32.0),
               child: ListTile(
-                title: Text("Modelo: {filtro.modelo}",
+                title: Text("Modelo: {sistema.modelo}",
                     style: TextStyle(fontSize: 25, fontWeight: FontWeight.w500),
                     textAlign: TextAlign.center),
-                subtitle: Text("Performanse: {filtro.performanse} L/h",
+                subtitle: Text("Performanse: {sistema.performanse} L/h",
                     style: TextStyle(
                         fontSize: 25,
                         fontWeight: FontWeight.w500,
@@ -236,13 +251,13 @@ class ScreenSimulation extends StatelessWidget {
               onPressed: () {
                 //Variáveis para calcular o tempo
                 String litrosTratar = _litrosControler.text;
-           //     String perforFiltro = filtro.performanse;
+           //     String perforsistema = sistema.performanse;
 
                 //Calculo do tempo de tratamento
                 //Conversão de litros em INT
                 var litros = int.parse('$litrosTratar');
                 //Capacidade de filtragem em INT
-       /////////////////////////////////         var filtragem = int.parse('$perforFiltro');
+       /////////////////////////////////         var filtragem = int.parse('$perforsistema');
                 //Conversão de litros para o calculo
                 var tempLitros = litros * 60;
                 //Calculando o tempo de filtragem (em segundos)

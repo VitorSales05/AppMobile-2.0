@@ -79,7 +79,7 @@ class _ScreenFilterList extends State<ScreenFilterList> {
                               : ListView.builder(
                                   itemCount: filtros.filtrosQuantidade,
                                   itemBuilder: (ctx, i) => Container(
-                                    height: 92,
+                                    height: 82,
                                     child: Card(
                                       color: PaletaCores.gray(),
                                       margin: EdgeInsets.fromLTRB(5, 2, 5, 2),

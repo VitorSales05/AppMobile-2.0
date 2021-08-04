@@ -34,6 +34,7 @@ class DbApp {
     List<String> queryes = [
       "CREATE TABLE bomba (id TEXT PRIMARY KEY, modelo TEXT, performanse TEXT, preco TEXT);",
       "CREATE TABLE filtro (id TEXT PRIMARY KEY, modelo TEXT, performanse TEXT, preco TEXT);",
+      "CREATE TABLE sistema (id TEXT PRIMARY KEY, nome TEXT, modeloFiltro TEXT, performanseFiltro TEXT, precoFiltro TEXT, modeloBomba TEXT, performanseBomba TEXT, precoBomba TEXT)",
       "CREATE TABLE estado (id TEXT PRIMARY KEY, nome TEXT, tarifa TEXT);",
      /*  "CREATE TEBLE sistema (id TEXT PRIMARY KEY, nome TEXT, filtro TEXT, )" */
     ];

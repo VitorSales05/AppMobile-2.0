@@ -1,4 +1,4 @@
-import 'package:filtro/providers/filtros.dart';
+import 'package:filtro/providers/sistemas.dart';
 import 'package:filtro/screens/screen_simulation.dart';
 import 'package:filtro/utils/color_palette.dart';
 import 'package:flutter/material.dart';
@@ -47,14 +47,14 @@ class _ScreenSimulate extends State<ScreenSimulate> {
                 height: screenRading * .85,
                 padding: EdgeInsets.fromLTRB(5, 0, 5, 0),
                 child: FutureBuilder(
-                  future: Provider.of<Filtros>(context, listen: false)
-                      .buscaFiltros(),
+                  future: Provider.of<Sistemas>(context, listen: false)
+                      .buscaSistemas(),
                   builder: (ctx, snapshot) => snapshot.connectionState ==
                           ConnectionState.waiting
                       ? Center(
                           child: CircularProgressIndicator(),
                         )
-                      : Consumer<Filtros>(
+                      : Consumer<Sistemas>(
                           child: Center(
                             child: Text(
                               'Nenhum sistema cadastrado',
@@ -64,18 +64,18 @@ class _ScreenSimulate extends State<ScreenSimulate> {
                                   color: PaletaCores.black()),
                             ),
                           ),
-                          builder: (ctx, filtros, chil) =>
-                              filtros.filtrosQuantidade == 0
+                          builder: (ctx, sistemas, chil) =>
+                              sistemas.sistemasQuantidade == 0
                                   ? chil
                                   : ListView.builder(
-                                      itemCount: filtros.filtrosQuantidade,
+                                      itemCount: sistemas.sistemasQuantidade,
                                       itemBuilder: (ctx, i) => Container(
                                         child: Card(
                                           color: PaletaCores.gray(),
                                           margin:
                                               EdgeInsets.fromLTRB(5, 2, 5, 2),
                                           child: ListTile(
-                                            leading: Column(
+                                            /* leading: Column(
                                               mainAxisAlignment:
                                                   MainAxisAlignment.center,
                                               children: <Widget>[
@@ -85,9 +85,9 @@ class _ScreenSimulate extends State<ScreenSimulate> {
                                                   color: PaletaCores.black(),
                                                 ),
                                               ],
-                                            ),
+                                            ), */
                                             title: Text(
-                                              '${filtros.getFiltro(i).modelo}',
+                                              ' Sistema:  ${sistemas.getSistema(i).nome}',
                                               style: TextStyle(
                                                 fontSize: 23,
                                                 color: PaletaCores.black(),
@@ -102,7 +102,7 @@ class _ScreenSimulate extends State<ScreenSimulate> {
                                                 new MaterialPageRoute(
                                                   builder: (context) =>
                                                       ScreenSimulation(
-                                                          filtros.getFiltro(i)),
+                                                          sistemas.getSistema(i)),
                                                 ),
                                               );
                                             },

@@ -1,10 +1,8 @@
-import 'package:filtro/controllers/controller_filter.dart';
-import 'package:filtro/controllers/controller_system.dart';
-import 'package:filtro/data/db_app.dart';
+import 'package:filtro/OLD/controller_systemOLD.dart';
 import 'package:filtro/models/filtro.dart';
-import 'package:filtro/providers/bombas.dart';
-import 'package:filtro/providers/filtros.dart';
-import 'package:filtro/OLD/screen_edit_filterOLD.dart';
+import 'package:filtro/models/sistema.dart';
+import 'package:filtro/providers/sistemas.dart';
+import 'package:filtro/utils/app_routes.dart';
 import 'package:filtro/utils/color_palette.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -15,6 +13,7 @@ class ScreenSystemList extends StatefulWidget {
 }
 
 class _ScreenSystemList extends State<ScreenSystemList> {
+
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
@@ -55,14 +54,14 @@ class _ScreenSystemList extends State<ScreenSystemList> {
                 height: screenHeigth * .85,
                 padding: EdgeInsets.fromLTRB(5, 0, 5, 0),
                 child: FutureBuilder(
-                  future: Provider.of<Filtros>(context, listen: false)
-                      .buscaFiltros(),
+                  future: Provider.of<Sistemas>(context, listen: false)
+                      .buscaSistemas(),
                   builder: (ctx, snapshot) => snapshot.connectionState ==
                           ConnectionState.waiting
                       ? Center(
                           child: CircularProgressIndicator(),
                         )
-                      : Consumer<Filtros>(
+                      : Consumer<Sistemas>(
                           child: Center(
                             child: Text(
                               'Nenhum sistema cadastrado',
@@ -73,14 +72,14 @@ class _ScreenSystemList extends State<ScreenSystemList> {
                               ),
                             ),
                           ),
-                          builder: (ctx, filtros, chil) => filtros
-                                      .filtrosQuantidade ==
+                          builder: (ctx, sistemas, chil) => sistemas
+                                      .sistemasQuantidade ==
                                   0
                               ? chil
                               : ListView.builder(
-                                  itemCount: filtros.filtrosQuantidade,
+                                  itemCount: sistemas.sistemasQuantidade,
                                   itemBuilder: (ctx, i) => Container(
-                                    height: 75,
+                                    height: 82,
                                     child: Card(
                                       color: PaletaCores.gray(),
                                       margin: EdgeInsets.fromLTRB(5, 2, 5, 2),
@@ -88,7 +87,7 @@ class _ScreenSystemList extends State<ScreenSystemList> {
                                         child: Row(
                                           children: <Widget>[
                                             Container(
-                                              width: screenWidth * .67,
+                                              width: screenWidth * .79,
                                               margin: EdgeInsets.fromLTRB(
                                                   12, 0, 0, 0),
                                               child: Column(
@@ -98,7 +97,7 @@ class _ScreenSystemList extends State<ScreenSystemList> {
                                                     CrossAxisAlignment.start,
                                                 children: <Widget>[
                                                   Text(
-                                                    'Nome: ${filtros.getFiltro(i).modelo}',
+                                                    'Sistema: ${sistemas.getSistema(i).nome}',
                                                     style: TextStyle(
                                                         fontSize: 22,
                                                         color: Colors.black),
@@ -107,7 +106,16 @@ class _ScreenSystemList extends State<ScreenSystemList> {
                                                     softWrap: false,
                                                   ),
                                                   Text(
-                                                    'Investimento: R\$ ${filtros.getFiltro(i).preco}',
+                                                    'Filtro utilizado: ${sistemas.getSistema(i).modeloFiltro}',
+                                                    style: TextStyle(
+                                                        fontSize: 21,
+                                                        color: Colors.black),
+                                                    overflow: TextOverflow.fade,
+                                                    maxLines: 1,
+                                                    softWrap: false,
+                                                  ),
+                                                  Text(
+                                                    'Bomba utilizada: ${sistemas.getSistema(i).modeloBomba}',
                                                     style: TextStyle(
                                                         fontSize: 21,
                                                         color: Colors.black),
@@ -119,35 +127,28 @@ class _ScreenSystemList extends State<ScreenSystemList> {
                                               ),
                                             ),
                                             Container(
-                                              // color: Colors.green,
+                                            //   color: Colors.green,
                                               child: Column(
                                                 mainAxisAlignment:
                                                     MainAxisAlignment.center,
                                                 children: <Widget>[
                                                   Row(
                                                     children: <Widget>[
-                                                      IconButton(
+                                                      /* IconButton(
                                                         icon: Icon(Icons.edit),
                                                         color: PaletaCores
                                                             .orange(),
                                                         onPressed: () {
-                                                          /* _exibeFiltroPage(
-                                                            filtro: filtros
-                                                                .getFiltro(i),
-                                                          ); */
+                                                          
                                                         },
-                                                      ),
+                                                      ), */
                                                       IconButton(
                                                         icon:
                                                             Icon(Icons.delete),
                                                         color:
                                                             PaletaCores.red(),
                                                         onPressed: () {
-                                                          /* deleteFilter(
-                                                              context,
-                                                              filtros
-                                                                  .getFiltro(i)
-                                                                  .id); */
+                                                          deleteSystem(context, sistemas.getSistema(i).id);
                                                         },
                                                       ),
                                                     ],
@@ -178,7 +179,7 @@ class _ScreenSystemList extends State<ScreenSystemList> {
             backgroundColor: PaletaCores.grafite(),
             elevation: 10,
             onPressed: () {
-             saveSystem(context);
+              Navigator.pushNamed(context, AppRoutes.NEW_SYSTEM_PAGE);
             },
           ),
         ),
@@ -186,8 +187,8 @@ class _ScreenSystemList extends State<ScreenSystemList> {
     );
   }
 
-  /* void _exibeFiltroPage({Filtro filtro}) async {
-    await editFilter(context, filtro);
-    Provider.of<Filtros>(context, listen: false).buscaFiltros();
+  /* void _exibeFiltroPage({Sistema filtro}) async {
+    await editSystem(context, );
+    Provider.of<Sistemas>(context, listen: false).buscaSistemas();
   } */
 }

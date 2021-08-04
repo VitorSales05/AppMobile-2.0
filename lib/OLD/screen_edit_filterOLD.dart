@@ -10,15 +10,15 @@ import 'package:flutter/widgets.dart';
   _ScreenFilter createState() => _ScreenFilter(Filtro());
 } */
 
-class ScreenEditFilterState extends StatefulWidget {
+class ScreenEditFilterStateOLD extends StatefulWidget {
   final Filtro filtro;
-  ScreenEditFilterState({this.filtro});
+  ScreenEditFilterStateOLD({this.filtro});
 
   @override
   _ScreenEditFilterState createState() => _ScreenEditFilterState();
 }
 
-class _ScreenEditFilterState extends State<ScreenEditFilterState> {
+class _ScreenEditFilterState extends State<ScreenEditFilterStateOLD> {
   final _modeloController = TextEditingController();
   final _performanseController = TextEditingController();
   final _precoController = TextEditingController();

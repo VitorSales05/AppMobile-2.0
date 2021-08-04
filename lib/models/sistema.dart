@@ -1,28 +1,36 @@
-
-import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 
 class Sistema {
   String id;
   String nome;
-  String total;
-  String idFiltro;
-  String idBomba;
+  String modeloFiltro;
+  String perfFiltro;
+  String precoFiltro;
+  String modeloBomba;
+  String perfBomba;
+  String precoBomba;
 
   Sistema({
     @required this.id,
     @required this.nome,
-    @required this.total,
-    @required this.idFiltro,
-    @required this.idBomba,
+    @required this.modeloFiltro,
+    @required this.perfFiltro,
+    @required this.precoFiltro,
+    @required this.modeloBomba,
+    @required this.perfBomba,
+    @required this.precoBomba,
   });
 
   Map<String, dynamic> toMap() {
     var map = <String, dynamic>{
       'id': id,
       'nome': nome,
-      'valorTotal': total,
-      'filtro_idFiltro': idFiltro,
-      'bomba_idbomba': idBomba,
+      'modeloFiltro': modeloFiltro,
+      'performanseFiltro': perfFiltro,
+      'precoFiltro': precoFiltro,
+      'modeloBomba': modeloBomba,
+      'performanseBomba': perfBomba,
+      'precoBomba': precoBomba,
     };
     return map;
   }
@@ -30,8 +38,11 @@ class Sistema {
   Sistema.fromMap(Map<String, dynamic> map) {
     id = map['id'];
     nome = map['nome'];
-    total = map['valorTotal'];
-    idFiltro = map['filtro_idFiltro'];
-    idBomba = map['bomba_idbomba'];
+    modeloFiltro = map['modeloFiltro'];
+    perfFiltro = map['performanseFiltro'];
+    precoFiltro = map['precoFiltro'];
+    modeloBomba = map['modeloBomba'];
+    perfBomba = map['performanseBomba'];
+    precoBomba = map['precoBomba'];
   }
 }

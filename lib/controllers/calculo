@@ -1,0 +1,49 @@
+Variáveis da função:
+        LtsUtilizados  - litros utilizados;
+        LtsEconomizados  - litros economizados;
+        M3  - m3 de água;
+        TarifaEstadual  - tarifa estadual;
+        RetornoFinan  - retorno;
+        TempRetInvest - tempo de retorno do investimento;
+        TempFiltragem  - tempo de filtragem;
+        PerfFiltro  - performance filtro;
+        PerfDiariaFiltro  - performance diaria filtro;
+        PerfBomba  - performance bomba;
+        ValorFiltro  - valor filtro;
+        ValorBomba  - valor bomba;
+        ValorTotalSistema - valor total do sistema.
+
+Cálculos da função
+        PerfFiltro = "fornecido pela função"
+        PerfDiariaFiltro = PerfFiltro * 24
+        M3 = LtsUtilizados / 1000
+        RetornoFinan = M3 * TarifaEstadual / 100 * 70
+        LtsEconomizados = LtsUtilizados / 100 * 70
+        TempFiltragem = LtsEconomizados / PerfDiariaFiltro 
+        ValorTotalSistema = ValorFiltro + ValorBomba 
+        TempRetInvest = ValorTotalSistema / RetornoFinan * TempFiltragem
+
+
+
+*****************************************
+Podendo explicar de uma forma melhor como os cálculos serão 
+feitos por meio do exemplo a seguir.
+A quantidade total de água consumida em uma residência 
+localizada na cidade de Santos, onde a tarifa atual é R$ 4,04 
+por m3 consumido, durante um mês foi de 20.000L, nela é 
+utilizado um sistema com um filtro que tem performance de 30L 
+por hora, e o valor total investido no sistema é R$ 500 Então 
+pode-se calcular que a quantidade a ser tratada é a seguinte:
+*******************************************
+
+
+PerfDiariaFiltro = 30 * 24 = 720;
+ValorTotalSistema = 500;
+LtsUtilizados = 20000;
+M3 = 20000 / 1000 = 20;
+TarifaEstadual = 4,04;
+TempFiltragem  = 20;
+
+Economia de litros = 14000;
+Retorno = 56,56;
+Tempo de retorno = 177;

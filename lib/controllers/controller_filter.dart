@@ -146,7 +146,6 @@ saveFilter(BuildContext context) {
 deleteFilter(context, String idFiltro) {
   return _deletDialog(context, idFiltro);
 }
-
 void _deletDialog(BuildContext context, String id) {
   var table = 'filtro';
 
@@ -199,7 +198,6 @@ void _deletDialog(BuildContext context, String id) {
 editFilter(context, Filtro filtro) {
   return _editDialog(context, filtro);
 }
-
 void _editDialog(BuildContext context, Filtro filtro) {
   Filtro _filtroCTX;
   _filtroCTX = Filtro.fromMap(filtro.toMap());
@@ -211,12 +209,6 @@ void _editDialog(BuildContext context, Filtro filtro) {
   final _modeloController = TextEditingController();
   final _performanseController = TextEditingController();
   final _precoController = TextEditingController();
-
-  /* void initState(){
-    super.initState();
-    filtroCTX = Filtro.fromMap(widget.filtro.toMap());
-  } */
-
   _modeloController.text = modeloFiltro;
   _performanseController.text = perforFiltro;
   _precoController.text = precoFiltro;

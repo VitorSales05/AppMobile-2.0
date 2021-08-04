@@ -1,4 +1,5 @@
 import 'package:filtro/providers/bombas.dart';
+import 'package:filtro/providers/sistemas.dart';
 import 'package:filtro/screens/screen_bomberList.dart';
 import 'package:filtro/OLD/screen_bomberListOLD.dart';
 import 'package:filtro/OLD/screen_register_filterOLD.dart';
@@ -6,6 +7,7 @@ import 'package:filtro/providers/filtros.dart';
 import 'package:filtro/screens/screen_estate.dart';
 import 'package:filtro/screens/screen_filterList.dart';
 import 'package:filtro/screens/screen_home.dart';
+import 'package:filtro/screens/screen_newSystem.dart';
 import 'package:filtro/screens/screen_simulate.dart';
 import 'package:filtro/screens/screen_about.dart';
 import 'package:filtro/screens/screen_systemList.dart';
@@ -25,6 +27,7 @@ class MyApp extends StatelessWidget {
       providers: [
         ChangeNotifierProvider<Bombas>.value(value: Bombas()),
         ChangeNotifierProvider<Filtros>.value(value: Filtros()),
+        ChangeNotifierProvider<Sistemas>.value(value: Sistemas()),
 
         /* Provider<Bombas>(create: (_) => Bombas()),
         Provider<Filtros>(create: (_) => Filtros()), */
@@ -38,6 +41,9 @@ class MyApp extends StatelessWidget {
           AppRoutes.BOMBER_LIST_PAGE: (ctx) => ScreenBomberList(),
           AppRoutes.FILTER_LIST_PAGE: (ctx) => ScreenFilterList(),
           AppRoutes.SYSTEM_LIST_PAGE: (ctx) => ScreenSystemList(),
+
+
+          AppRoutes.NEW_SYSTEM_PAGE: (ctx) => ScreenNewSystem(),
         },
       ),
     );
