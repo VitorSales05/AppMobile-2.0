@@ -1,2 +1,2 @@
-# AppMobile-2.0
-Aplicação Água Melhor
+# App Água Melhor
+Aplicação mobile voltada para a reutilização de águas cinzas
